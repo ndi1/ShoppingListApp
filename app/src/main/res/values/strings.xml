@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Shopping List Generator</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="servings">
+        <item>Cup(s)</item>
+        <item>Pound(s)</item>
+        <item>Grams</item>
+        <item>Ounces</item>
+        <item>Fl oz</item>
+        <item>Gallon(s)</item>
+        <item>Pint(s)</item>
+        <item>tsp</item>
+        <item>tbsp</item>
+    </string-array>
 </resources>
