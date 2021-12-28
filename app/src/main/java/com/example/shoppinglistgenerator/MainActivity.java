@@ -3,6 +3,7 @@ package com.example.shoppinglistgenerator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-DatabaseHelper myDB;
+
 
     private Button recipeButton;
     private Button foodButton;
@@ -25,11 +26,12 @@ DatabaseHelper myDB;
     private FloatingActionButton addToDayButton;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myDB = new DatabaseHelper(this);
+        SQLiteDatabase myDB = new DatabaseHelper(this).getWritableDatabase();
 
 
 
