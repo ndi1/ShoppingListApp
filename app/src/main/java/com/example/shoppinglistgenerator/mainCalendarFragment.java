@@ -8,11 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link mainCalendarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class mainCalendarFragment extends Fragment {
 
 
@@ -25,7 +21,7 @@ public class mainCalendarFragment extends Fragment {
     private String mParam2;
 
     public mainCalendarFragment() {
-        // Required empty public constructor
+
     }
 
     // TODO: Rename and change types and number of parameters
