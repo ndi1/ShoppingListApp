@@ -32,6 +32,7 @@ DatabaseHelper myDB;
         myDB = new DatabaseHelper(this);
 
 
+
 //Testing ListView
         final ListView recipeListView = (ListView) findViewById(R.id.dailyRecipeListView);
         String[] recipes = new String[]{
