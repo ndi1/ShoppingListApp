@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 
-public class searchFoodListFragment extends Fragment {
+public class searchFoodListFragment extends Fragment implements FoodRecyclerAdapter.OnFoodListener {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -60,9 +61,14 @@ public class searchFoodListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search_food_list, container, false);
         recyclerView = view.findViewById(R.id.foodListRV);
         loadFoods();
-        FoodRecyclerAdapter foodRecyclerAdapter = new FoodRecyclerAdapter(this.getContext(),foods);
+        FoodRecyclerAdapter foodRecyclerAdapter = new FoodRecyclerAdapter(this.getContext(),foods,this);
         recyclerView.setAdapter(foodRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return view;
+    }
+
+    @Override
+    public void onFoodClick(int position) {
+        foods.get(position);
     }
 }
