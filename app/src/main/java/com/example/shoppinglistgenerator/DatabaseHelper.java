@@ -2,10 +2,13 @@ package com.example.shoppinglistgenerator;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -36,13 +39,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String INGREDIENT_TABLE_COL2 = "FOOD_ID";
     public static final String INGREDIENT_TABLE_COL3 = "RECIPE_ID";
 
+
+ /*   //Daily Food Table and Columns
+    public static final String DAILY_FOOD_TABLE_NAME = "daily_table";
+    public static final String DAILY_FOOD_TABLE_COL1 = "DAILY_ID";
+    public static final String DAILY_FOOD_TABLE_COL2 = "FOOD_ID";
+    public static final String DAILY_FOOD_TABLE_COL3 = "RECIPE_ID";*/
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
 
 
     }
 
-
+//Add a food item into the food_table in the ShoppingList Database
     public Boolean addFoods(String foodName, String foodDesc, Double foodCals, Double foodFats,Double foodCarbs, Double foodProtein, Double foodServings, String foodServType){
         String query = "INSERT INTO "+FOOD_TABLE_NAME+" (FOOD_NAME, FOOD_DESC, FOOD_CALS, FOOD_FATS,FOOD_CARBS,FOOD_PROTEIN,FOOD_SERVINGS,FOOD_SERVING_TYPE)";
         SQLiteDatabase db = this.getWritableDatabase();
@@ -61,7 +71,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
+    //Method to query the database for all foods and add them to the arraylist used to populate the food recycleviewer
+    public ArrayList createFoodList(ArrayList<Food> foods){
+SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select * from foods_table",null);
+        cursor.moveToFirst();
+        while(!cursor.isAfterLast()){
+            try {
+                String foodName = cursor.getString(1);
+                String foodDesc = cursor.getString(2);
+                Double foodCals = cursor.getDouble(3);
+                Double foodFats = cursor.getDouble(4);
+                Double foodCarbs = cursor.getDouble(5);
+                Double foodProtein = cursor.getDouble(6);
+                Double foodServings = cursor.getDouble(7);
+                String foodServType = cursor.getString(8);
+                Food food = new Food(foodName,foodDesc,foodCals,foodFats,foodCarbs,foodProtein,foodServings,foodServType);
+                foods.add(food);
+                cursor.moveToNext();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
 
+                   }
+        cursor.close();
+        db.close();
+    return foods;
+    }
+
+
+//Method to create the initial database and tables
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create Table "+ FOOD_TABLE_NAME+ " (FOOD_ID INTEGER PRIMARY KEY AUTOINCREMENT,FOOD_NAME TEXT, FOOD_DESC TEXT, FOOD_CALS DOUBLE, FOOD_FATS DOUBLE, FOOD_CARBS DOUBLE," +
@@ -71,6 +110,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (RECIPE_ID) REFERENCES recipe_table (RECIPE_ID) ON DELETE CASCADE ON UPDATE CASCADE)");
     }
 
+//Method to upgrade database if needed
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS FOOD_TABLE_NAME");

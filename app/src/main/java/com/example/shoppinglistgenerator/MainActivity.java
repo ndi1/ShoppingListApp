@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Method to open list activity
     public void openAddToDayActivity(){
-        Intent intent = new Intent(this, addToDayActivity.class);
+        Intent intent = new Intent(this, foodSearchActivity.class);
         startActivity(intent);
     }
 }

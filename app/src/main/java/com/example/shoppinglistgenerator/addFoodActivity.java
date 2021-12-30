@@ -101,8 +101,16 @@ private Double calDouble, fatsDouble, carbsDouble, proteinDouble, servingsDouble
         else
             Toast.makeText(addFoodActivity.this,"Food Not Added",Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, addFoodActivity.class);
-        startActivity(intent);
+
+        //Clear the food entry form
+        foodNameTextbox.getText().clear();
+        foodDescriptionTextbox.getText().clear();
+        caloriesTextbox.getText().clear();
+        fatsTextbox.getText().clear();
+        proteinTextbox.getText().clear();
+        carbsTextbox.getText().clear();
+        servingSizeTextbox.getText().clear();
+        servingsSpinner.setSelection(0);
     }
 
 }
