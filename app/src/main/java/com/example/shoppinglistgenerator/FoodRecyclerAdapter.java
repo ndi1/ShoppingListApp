@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapter.MyViewHolder>{
+public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapter.MyViewHolder> implements Filterable {
 
     Context context;
     ArrayList<Food> foodList;
+    ArrayList<Food> foodListFull;
     private OnFoodListener mOnFoodListener;
 
 
@@ -23,6 +26,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
             context = c;
             foodList = foods;
             this.mOnFoodListener = onFoodListener;
+            foodListFull = new ArrayList<Food>(foodList);
     }
 
     @NonNull
@@ -63,6 +67,40 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
     public interface OnFoodListener{
         void onFoodClick(int position);
     }
+
+    public Filter getFilter(){
+        return foodListFilter;
+    }
+
+    private Filter foodListFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<Food> filteredFoodList = new ArrayList<>();
+
+            if (constraint == null || constraint.length()==0){
+                filteredFoodList.addAll(foodListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (Food f: foodListFull){
+                    if (f.getFoodName().toLowerCase().contains(filterPattern)){
+                        filteredFoodList.add(f);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredFoodList;
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            foodList.clear();
+            foodList.addAll((ArrayList)results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
 
 
