@@ -78,6 +78,7 @@ SQLiteDatabase db = this.getReadableDatabase();
         cursor.moveToFirst();
         while(!cursor.isAfterLast()){
             try {
+                Integer foodId = cursor.getInt(0);
                 String foodName = cursor.getString(1);
                 String foodDesc = cursor.getString(2);
                 Double foodCals = cursor.getDouble(3);
@@ -86,7 +87,7 @@ SQLiteDatabase db = this.getReadableDatabase();
                 Double foodProtein = cursor.getDouble(6);
                 Double foodServings = cursor.getDouble(7);
                 String foodServType = cursor.getString(8);
-                Food food = new Food(foodName,foodDesc,foodCals,foodFats,foodCarbs,foodProtein,foodServings,foodServType);
+                Food food = new Food(foodId,foodName,foodDesc,foodCals,foodFats,foodCarbs,foodProtein,foodServings,foodServType);
                 foods.add(food);
                 cursor.moveToNext();
             } catch (Exception e){

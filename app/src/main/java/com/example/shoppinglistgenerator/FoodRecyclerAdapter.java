@@ -21,7 +21,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
     ArrayList<Food> foodListFull;
     private OnFoodListener mOnFoodListener;
 
-
+//Adapter constructer with onCLickListener
     public FoodRecyclerAdapter(Context c, ArrayList<Food> foods,OnFoodListener onFoodListener){
             context = c;
             foodList = foods;
@@ -29,6 +29,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
             foodListFull = new ArrayList<Food>(foodList);
     }
 
+    //Inflates the view when created
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,10 +38,14 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         return new MyViewHolder(view,mOnFoodListener);
     }
 
+    //Sets text within recyclerview cards
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Food food = foodList.get(position);
         holder.foodName.setText(food.getFoodName());
+        holder.foodDesc.setText(food.getFoodDesc());
+        holder.foodCal.setText(food.getFoodCal().toString()+" Cals");
+
     }
 
     @Override
@@ -50,11 +55,15 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView foodName;
+        TextView foodDesc;
+        TextView foodCal;
 
         OnFoodListener onFoodListener;
         public MyViewHolder(@NonNull View itemView,OnFoodListener onFoodListener) {
             super(itemView);
             foodName = itemView.findViewById(R.id.foodName);
+            foodDesc = itemView.findViewById(R.id.foodDesc);
+            foodCal = itemView.findViewById(R.id.foodCal);
             itemView.setOnClickListener(this);
             this.onFoodListener = onFoodListener;
         }

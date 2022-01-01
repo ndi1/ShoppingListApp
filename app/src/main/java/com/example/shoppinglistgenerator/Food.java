@@ -1,6 +1,7 @@
 package com.example.shoppinglistgenerator;
 
 public class Food {
+    private int foodId;
     private String foodName;
     private String foodDesc;
     private Double foodCal;
@@ -13,6 +14,14 @@ public class Food {
 
     public String getFoodName() {
         return foodName;
+    }
+
+    public int getFoodId() {
+        return foodId;
+    }
+
+    public void setFoodId(int foodId) {
+        this.foodId = foodId;
     }
 
     public void setFoodName(String foodName) {
@@ -75,7 +84,8 @@ public class Food {
         this.servingType = servingType;
     }
 
-    public Food(String foodName, String foodDesc, Double foodCal, Double foodFats, Double foodCarbs, Double foodProtein, Double servingSize, String servingType) {
+    public Food(Integer foodId,String foodName, String foodDesc, Double foodCal, Double foodFats, Double foodCarbs, Double foodProtein, Double servingSize, String servingType) {
+        this.foodId = foodId;
         this.foodName = foodName;
         this.foodDesc = foodDesc;
         this.foodCal = foodCal;
