@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
+// This class handles the display of RecylcerView items and functionality of the individual items therein
 public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapter.MyViewHolder> implements Filterable {
 
     Context context;
@@ -48,11 +50,13 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
 
     }
 
+    //Required method for adapater
     @Override
     public int getItemCount() {
         return foodList == null ? 0: foodList.size();
     }
 
+    //Internal class which assigns values to objects within individual cards inside the RecyclerView
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView foodName;
         TextView foodDesc;
@@ -79,6 +83,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         void onFoodClick(int position);
     }
 
+    //Methods below allow for real-time filtering of data within the RecyclerView
     public Filter getFilter(){
         return foodListFilter;
     }

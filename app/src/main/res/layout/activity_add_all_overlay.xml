@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addAllOverlayActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/returnMainFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/foodIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/listIV"
+        app:layout_constraintEnd_toStartOf="@+id/recipeIV"
+        app:layout_constraintStart_toStartOf="@+id/listIV"
+        app:layout_constraintTop_toTopOf="@+id/recipeIV"
+        app:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+    <ImageView
+        android:id="@+id/listIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintBottom_toBottomOf="@+id/returnMainFAB"
+        app:layout_constraintEnd_toStartOf="@+id/returnMainFAB"
+        app:layout_constraintTop_toTopOf="@+id/returnMainFAB"
+        app:srcCompat="@drawable/ic_baseline_event_note_24" />
+
+    <ImageView
+        android:id="@+id/recipeIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/returnMainFAB"
+        app:layout_constraintEnd_toEndOf="@+id/returnMainFAB"
+        app:layout_constraintStart_toStartOf="@+id/returnMainFAB"
+        app:srcCompat="@drawable/ic_baseline_food_bank_24" />
+
+    <TextView
+        android:id="@+id/addFoodTVOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Food"
+        app:layout_constraintEnd_toEndOf="@+id/foodIV"
+        app:layout_constraintStart_toStartOf="@+id/foodIV"
+        app:layout_constraintTop_toBottomOf="@+id/foodIV" />
+
+    <TextView
+        android:id="@+id/addRecipeTVOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Recipe"
+        app:layout_constraintEnd_toEndOf="@+id/recipeIV"
+        app:layout_constraintStart_toStartOf="@+id/recipeIV"
+        app:layout_constraintTop_toBottomOf="@+id/recipeIV" />
+
+    <TextView
+        android:id="@+id/addListTVOverlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Item"
+        app:layout_constraintEnd_toEndOf="@+id/listIV"
+        app:layout_constraintStart_toStartOf="@+id/listIV"
+        app:layout_constraintTop_toBottomOf="@+id/listIV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
+    //Method to delete a food from the database
     public Integer deleteFoods(Integer ID){
 SQLiteDatabase db = this.getWritableDatabase();
 return db.delete(FOOD_TABLE_NAME,"FOOD_ID = ?",new String[] {ID.toString()});

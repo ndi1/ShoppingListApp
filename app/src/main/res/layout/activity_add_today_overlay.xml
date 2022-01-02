@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addTodayOverlayActivity">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addToDayReturnMainFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/addRecipeToDayIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toTopOf="@+id/addToDayReturnMainFAB"
+        app:layout_constraintEnd_toEndOf="@+id/addToDayReturnMainFAB"
+        app:srcCompat="@drawable/ic_baseline_food_bank_24" />
+
+    <TextView
+        android:id="@+id/addRecipeToDayTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Recipe"
+        app:layout_constraintEnd_toEndOf="@+id/addRecipeToDayIV"
+        app:layout_constraintStart_toStartOf="@+id/addRecipeToDayIV"
+        app:layout_constraintTop_toBottomOf="@+id/addRecipeToDayIV" />
+
+    <TextView
+        android:id="@+id/addFoodToDayTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Food"
+        app:layout_constraintEnd_toEndOf="@+id/addFoodToDayIV"
+        app:layout_constraintStart_toStartOf="@+id/addFoodToDayIV"
+        app:layout_constraintTop_toBottomOf="@+id/addFoodToDayIV" />
+
+    <ImageView
+        android:id="@+id/addFoodToDayIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/addItemToDayIV"
+        app:layout_constraintEnd_toStartOf="@+id/addRecipeToDayIV"
+        app:layout_constraintStart_toStartOf="@+id/addItemToDayIV"
+        app:layout_constraintTop_toTopOf="@+id/addRecipeToDayIV"
+        app:layout_constraintVertical_bias="0.506"
+        app:srcCompat="@drawable/ic_baseline_fastfood_24" />
+
+    <ImageView
+        android:id="@+id/addItemToDayIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="72dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addToDayReturnMainFAB"
+        app:layout_constraintEnd_toStartOf="@+id/addToDayReturnMainFAB"
+        app:layout_constraintTop_toTopOf="@+id/addToDayReturnMainFAB"
+        app:srcCompat="@drawable/ic_baseline_event_note_24" />
+
+    <TextView
+        android:id="@+id/addToDayListTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Item"
+        app:layout_constraintEnd_toEndOf="@+id/addItemToDayIV"
+        app:layout_constraintStart_toStartOf="@+id/addItemToDayIV"
+        app:layout_constraintTop_toBottomOf="@+id/addItemToDayIV" />
+</androidx.constraintlayout.widget.ConstraintLayout>

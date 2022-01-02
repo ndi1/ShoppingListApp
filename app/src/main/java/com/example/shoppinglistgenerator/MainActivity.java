@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
         setContentView(R.layout.activity_main);
         SQLiteDatabase myDB = new DatabaseHelper(this).getWritableDatabase();
-
 
 
 //Testing ListView
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         final List<String> recipe_list = new ArrayList<String>(Arrays.asList(recipes));
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,recipe_list);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, recipe_list);
         recipeListView.setAdapter(arrayAdapter);
 //Testing ListView
 
@@ -52,62 +52,29 @@ public class MainActivity extends AppCompatActivity {
         addToDayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            openAddToDayActivity();
+                openTodayOverlay();
             }
         });
 
-
-        //Add OnClickListener to add recipe button
-        recipeButton = findViewById(R.id.addRecipeButton);
-        recipeButton.setOnClickListener(new View.OnClickListener() {
+        addToDayButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
-                openRecipeActivity();
-            }
-        });
-
-        //Add OnClickListener to add food button
-        foodButton = findViewById(R.id.addFoodItemButton);
-        foodButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFoodActivity();
-            }
-        });
-
-        //Add OnClickListener to create list button
-        listButton = findViewById(R.id.adToListButton);
-        listButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openListActivity();
+            public boolean onLongClick(View v) {
+                openAddToDayActivity();
+                return true;
             }
         });
 
     }
 
-
-    //Method to open recipe activity
-    public void openRecipeActivity(){
-        Intent intent = new Intent(this, addRecipeActivitiy.class);
-        startActivity(intent);
-    }
-
-    //Method to open food activity
-    public void openFoodActivity(){
-        Intent intent = new Intent(this, addFoodActivity.class);
-        startActivity(intent);
-    }
-
-    //Method to open list activity
-    public void openListActivity(){
-        Intent intent = new Intent(this, createListActivity.class);
+    public void openTodayOverlay(){
+        Intent intent = new Intent(this, addTodayOverlayActivity.class);
         startActivity(intent);
     }
 
     //Method to open list activity
     public void openAddToDayActivity(){
-        Intent intent = new Intent(this, foodSearchActivity.class);
+        //Intent intent = new Intent(this, foodSearchActivity.class);
+        Intent intent = new Intent(this, addAllOverlayActivity.class);
         startActivity(intent);
     }
 }
