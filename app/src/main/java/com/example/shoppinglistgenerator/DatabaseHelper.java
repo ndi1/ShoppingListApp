@@ -71,6 +71,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return true;
     }
 
+    public Integer deleteFoods(Integer ID){
+SQLiteDatabase db = this.getWritableDatabase();
+return db.delete(FOOD_TABLE_NAME,"FOOD_ID = ?",new String[] {ID.toString()});
+    }
+
+
     //Method to query the database for all foods and add them to the arraylist used to populate the food recycleviewer
     public ArrayList createFoodList(ArrayList<Food> foods){
 SQLiteDatabase db = this.getReadableDatabase();

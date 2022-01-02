@@ -11,6 +11,12 @@ public class Food {
     private Double servingSize;
     private String servingType;
 
+    public Food() {
+    }
+
+    public Food(Integer id){
+        this.setFoodId(id);
+    }
 
     public String getFoodName() {
         return foodName;

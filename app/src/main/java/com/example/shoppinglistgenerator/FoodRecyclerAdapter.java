@@ -73,6 +73,8 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         onFoodListener.onFoodClick(getAdapterPosition());
         }
     }
+
+
     public interface OnFoodListener{
         void onFoodClick(int position);
     }

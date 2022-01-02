@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,6 +69,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         recyclerView = view.findViewById(R.id.foodListRV);
         loadFoods();
        foodRecyclerAdapter = new FoodRecyclerAdapter(this.getContext(),foods,this);
+       new ItemTouchHelper(itemTouchHelperCallback).attachToRecyclerView(recyclerView);
         recyclerView.setAdapter(foodRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         setHasOptionsMenu(true);
@@ -103,4 +105,22 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
     public void onFoodClick(int position) {
         foods.get(position);
     }
+
+    ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+            int ID = foods.get(viewHolder.getAdapterPosition()).getFoodId();
+            DatabaseHelper myDB = new DatabaseHelper(getContext());
+            myDB.deleteFoods(ID);
+            foods.remove(viewHolder.getAdapterPosition());
+            foodRecyclerAdapter.notifyDataSetChanged();
+        }
+    };
+
 }
