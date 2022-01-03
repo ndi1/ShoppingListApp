@@ -1,5 +1,6 @@
 package com.example.shoppinglistgenerator;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,10 +18,11 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class searchFoodListFragment extends Fragment implements FoodRecyclerAdapter.OnFoodListener {
+public class searchFoodListFragment extends Fragment implements FoodRecyclerAdapter.OnFoodListener, Serializable {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -75,6 +77,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         setHasOptionsMenu(true);
 
 
+
         return view;
     }
 
@@ -104,6 +107,12 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
     @Override
     public void onFoodClick(int position) {
         foods.get(position);
+       Integer id = foods.get(position).getFoodId();
+       DatabaseHelper db = new DatabaseHelper(this.getContext());
+       Food editFood = db.findFood(id);
+        Intent intent = new Intent(this.getContext(), EditFoodActivity.class);
+        intent.putExtra("Food",editFood);
+        startActivity(intent);
     }
 
     ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {

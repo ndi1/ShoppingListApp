@@ -2,7 +2,6 @@ package com.example.shoppinglistgenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,7 +33,7 @@ private Double calDouble, fatsDouble, carbsDouble, proteinDouble, servingsDouble
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         servingsSpinner.setAdapter(adapter);
 
-        addFoodButton = findViewById(R.id.floatingActionButton3);
+        addFoodButton = findViewById(R.id.saveFood);
         addFoodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

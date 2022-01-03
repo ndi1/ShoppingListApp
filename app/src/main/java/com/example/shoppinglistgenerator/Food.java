@@ -1,7 +1,9 @@
 package com.example.shoppinglistgenerator;
 
-public class Food {
-    private int foodId;
+import java.io.Serializable;
+
+public class Food implements Serializable {
+    private Integer foodId;
     private String foodName;
     private String foodDesc;
     private Double foodCal;

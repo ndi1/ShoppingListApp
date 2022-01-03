@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -105,6 +106,47 @@ SQLiteDatabase db = this.getReadableDatabase();
         cursor.close();
         db.close();
     return foods;
+    }
+
+    //Method to edit a food
+    public Boolean editFoods(Integer ID, String foodName, String foodDesc, Double foodCals, Double foodFats,Double foodCarbs, Double foodProtein, Double foodServings, String foodServType){
+
+
+        SQLiteDatabase db  = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(FOOD_TABLE_COL2,foodName);
+        contentValues.put(FOOD_TABLE_COL3,foodDesc);
+        contentValues.put(FOOD_TABLE_COL4,foodCals);
+        contentValues.put(FOOD_TABLE_COL5,foodFats);
+        contentValues.put(FOOD_TABLE_COL6,foodCarbs);
+        contentValues.put(FOOD_TABLE_COL7,foodProtein);
+        contentValues.put(FOOD_TABLE_COL8,foodServings);
+        contentValues.put(FOOD_TABLE_COL9,foodServType);
+
+            db.update(FOOD_TABLE_NAME,contentValues,"FOOD_ID = ?",new String[] {ID.toString()});
+            return true;
+    }
+
+    //Method to find a food to edit
+    public Food findFood(Integer ID){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+FOOD_TABLE_NAME+ " WHERE "+ FOOD_TABLE_COL1 + "=" + ID,null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            Integer foodId = cursor.getInt(0);
+            String foodName = cursor.getString(1);
+            String foodDesc = cursor.getString(2);
+            Double foodCals = cursor.getDouble(3);
+            Double foodFats = cursor.getDouble(4);
+            Double foodCarbs = cursor.getDouble(5);
+            Double foodProtein = cursor.getDouble(6);
+            Double foodServings = cursor.getDouble(7);
+            String foodServType = cursor.getString(8);
+            Food food = new Food(foodId,foodName,foodDesc,foodCals,foodFats,foodCarbs,foodProtein,foodServings,foodServType);
+            return food;
+        }
+        else return null;
     }
 
 

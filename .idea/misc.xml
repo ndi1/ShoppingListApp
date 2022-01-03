@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/drawable/ic_baseline_event_note_24.xml" value="0.4203125" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.4203125" />
+        <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/drawable/ic_baseline_food_bank_24.xml" value="0.4203125" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/drawable/ic_recipe.xml" value="0.4203125" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/drawable/ic_search.xml" value="0.246875" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_add_all_overlay.xml" value="0.4041666666666667" />
@@ -12,6 +14,7 @@
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_add_to_day.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_add_today_overlay.xml" value="0.4" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_create_list.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_edit_food.xml" value="0.39010416666666664" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_food_search.xml" value="0.39010416666666664" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/activity_main.xml" value="0.338768115942029" />
         <entry key="..\:/Users/jhelt/AndroidStudioProjects/ShoppingListGenerator/app/src/main/res/layout/food_row.xml" value="0.4" />

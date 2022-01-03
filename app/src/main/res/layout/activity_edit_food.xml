@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addFoodActivity">
+    tools:context=".EditFoodActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/foodNameTextInput"
+        android:id="@+id/foodNameTextInputEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/foodNameTextbox"
+            android:id="@+id/foodNameTextboxEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Enter Food Name"
@@ -30,10 +30,10 @@
         android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodNameTextInput">
+        app:layout_constraintTop_toBottomOf="@+id/foodNameTextInputEdit">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/foodDescriptionTextbox"
+            android:id="@+id/foodDescriptionTextboxEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Enter Food Description"
@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/foodDescriptionTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/caloriesTextbox"
+            android:id="@+id/caloriesTextboxEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Calories"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/caloriesTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/fatsTextbox"
+            android:id="@+id/fatsTextboxEdit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="Enter Fats (g)"
@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/fatsTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/carbsTextbox"
+            android:id="@+id/carbsTextboxEdit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="Enter Carbs (g)"
@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/carbsTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/proteinTextbox"
+            android:id="@+id/proteinTextboxEdit"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="Enter Protein (g)"
@@ -106,7 +106,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveFood"
+        android:id="@+id/saveFoodEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/proteinTextLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/servingSizeTextbox"
+            android:id="@+id/servingSizeTextboxEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Serving Size"
@@ -134,7 +134,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/servingSpinner"
+        android:id="@+id/servingSpinnerEdit"
         android:layout_width="150dp"
         android:layout_height="57dp"
         app:layout_constraintBottom_toBottomOf="@+id/servingSizeTextLayout"
