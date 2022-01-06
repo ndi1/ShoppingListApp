@@ -1,12 +1,14 @@
 package com.example.shoppinglistgenerator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
     ArrayList<Food> foodList;
     ArrayList<Food> foodListFull;
     private OnFoodListener mOnFoodListener;
+
 
 //Adapter constructer with onCLickListener
     public FoodRecyclerAdapter(Context c, ArrayList<Food> foods,OnFoodListener onFoodListener){
@@ -48,6 +51,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         holder.foodDesc.setText(food.getFoodDesc());
         holder.foodCal.setText(food.getFoodCal().toString()+" Cals");
 
+
     }
 
     //Required method for adapater
@@ -63,11 +67,14 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
         TextView foodCal;
 
         OnFoodListener onFoodListener;
+
         public MyViewHolder(@NonNull View itemView,OnFoodListener onFoodListener) {
             super(itemView);
             foodName = itemView.findViewById(R.id.foodName);
             foodDesc = itemView.findViewById(R.id.foodDesc);
             foodCal = itemView.findViewById(R.id.foodCal);
+
+
             itemView.setOnClickListener(this);
             this.onFoodListener = onFoodListener;
         }
@@ -81,7 +88,9 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
 
     public interface OnFoodListener{
         void onFoodClick(int position);
+
     }
+
 
     //Methods below allow for real-time filtering of data within the RecyclerView
     public Filter getFilter(){
@@ -110,6 +119,7 @@ public class FoodRecyclerAdapter extends RecyclerView.Adapter<FoodRecyclerAdapte
 
         }
 
+        //Required method to change the arraylist upon data changes
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             foodList.clear();

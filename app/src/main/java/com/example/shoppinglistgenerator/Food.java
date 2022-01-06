@@ -2,7 +2,10 @@ package com.example.shoppinglistgenerator;
 
 import java.io.Serializable;
 
+//This class is used to describe the components of a food object
 public class Food implements Serializable {
+
+
     private Integer foodId;
     private String foodName;
     private String foodDesc;

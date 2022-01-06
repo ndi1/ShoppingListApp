@@ -15,6 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.io.Serializable;
 
 public class EditFoodActivity extends AppCompatActivity implements Serializable{
+
+    //Vairable initialization
     DatabaseHelper myDb;
     private FloatingActionButton editFoodButton;
     private EditText foodNameTextbox,foodDescriptionTextbox,caloriesTextbox,fatsTextbox,carbsTextbox,proteinTextbox,servingSizeTextbox;
@@ -24,6 +26,7 @@ public class EditFoodActivity extends AppCompatActivity implements Serializable{
     private Food updatedFood;
     private Integer foodID;
 
+    //Method called when the activity is created (setup method)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +71,7 @@ public class EditFoodActivity extends AppCompatActivity implements Serializable{
 
 
 
-
+    //On click listener for save button to edit selected foods
         editFoodButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,6 +99,7 @@ public class EditFoodActivity extends AppCompatActivity implements Serializable{
 
     }
 
+    //Method to return to the food search activity
 public void returnToSearch(){
     Intent intent = new Intent(this, foodSearchActivity.class);
     startActivity(intent);

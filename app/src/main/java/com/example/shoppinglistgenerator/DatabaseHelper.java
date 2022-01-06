@@ -14,7 +14,7 @@ import java.util.BitSet;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //DB declaration
-    public static final String DATABASE_NAME = "ShoppingList.db";
+    public static final String DATABASE_NAME = "appData.db";
 
     //Food Table and Columns
     public static final String FOOD_TABLE_NAME = "foods_table";
@@ -40,12 +40,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String INGREDIENT_TABLE_COL2 = "FOOD_ID";
     public static final String INGREDIENT_TABLE_COL3 = "RECIPE_ID";
 
+    public static final String ITEM_TABLE_NAME = "item_table";
+    public static final String ITEM_TABLE_COL1 = "ITEM_ID";
+    public static final String ITEM_TABLE_COL2 = "ITEM_DESC";
 
- /*   //Daily Food Table and Columns
-    public static final String DAILY_FOOD_TABLE_NAME = "daily_table";
-    public static final String DAILY_FOOD_TABLE_COL1 = "DAILY_ID";
-    public static final String DAILY_FOOD_TABLE_COL2 = "FOOD_ID";
-    public static final String DAILY_FOOD_TABLE_COL3 = "RECIPE_ID";*/
+    //Daily Food Table and Columns
+    public static final String DAILY_FOOD_TABLE_NAME = "daily_food_table";
+    public static final String DAILY_FOOD_TABLE_COL1 = "DAILY_FOOD_ID";
+    public static final String DAILY_FOOD_TABLE_COL3 = "FOOD_ID";
+    public static final String DAILY_FOOD_TABLE_COL4 = "F00D_DATE";
+
+    //Daily Food Table and Columns
+    public static final String DAILY_RECIPE_TABLE_NAME = "daily_recipe_table";
+    public static final String DAILY_RECIPE_TABLE_COL1 = "DAILY_RECIPE_ID";
+    public static final String DAILY_RECIPE_TABLE_COL3 = "RECIPE_ID";
+    public static final String DAILY_RECIPE_TABLE_COL4 = "RECIPE_DATE";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -150,6 +159,9 @@ SQLiteDatabase db = this.getReadableDatabase();
     }
 
 
+
+
+
 //Method to create the initial database and tables
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -158,6 +170,9 @@ SQLiteDatabase db = this.getReadableDatabase();
         db.execSQL("Create Table "+RECIPE_TABLE_NAME+ " (RECIPE_ID INTEGER PRIMARY KEY AUTOINCREMENT, RECIPE_NAME TEXT, RECIPE_DESC TEXT)");
         db.execSQL("Create Table "+INGREDIENT_TABLE_NAME+ " (INGREDIENT_ID INTEGER PRIMARY KEY AUTOINCREMENT, FOOD_ID INTEGER, RECIPE_ID INTEGER, FOREIGN KEY (FOOD_ID) REFERENCES foods_table (FOOD_ID) ON DELETE CASCADE ON UPDATE CASCADE,  " +
                 "FOREIGN KEY (RECIPE_ID) REFERENCES recipe_table (RECIPE_ID) ON DELETE CASCADE ON UPDATE CASCADE)");
+        db.execSQL("Create Table "+ITEM_TABLE_NAME+ " (ITEM_ID INTEGER PRIMARY KEY AUTOINCREMENT, ITEM_NAME TEXT, ITEM_DESC TEXT)");
+        db.execSQL("Create Table "+DAILY_FOOD_TABLE_NAME + " (DAILY_FOOD_ID INTEGER PRIMARY KEY AUTOINCREMENT,FOOD_ID INTEGER, FOOD_DATE TEXT, FOREIGN KEY (FOOD_ID) REFERENCES foods_table (FOOD_ID) ON DELETE CASCADE ON UPDATE CASCADE)");
+        db.execSQL("Create Table "+DAILY_RECIPE_TABLE_NAME + " (DAILY_RECIPE_ID INTEGER PRIMARY KEY AUTOINCREMENT,RECIPE_ID INTEGER, RECIPE_DATE TEXT, FOREIGN KEY (RECIPE_ID) REFERENCES recipe_table (RECIPE_ID) ON DELETE CASCADE ON UPDATE CASCADE)");
     }
 
 //Method to upgrade database if needed

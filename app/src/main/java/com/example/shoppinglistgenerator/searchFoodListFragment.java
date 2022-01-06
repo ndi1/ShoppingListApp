@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class searchFoodListFragment extends Fragment implements FoodRecyclerAdapter.OnFoodListener, Serializable {
 
-
+//Variable Initialization
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView recyclerView;
@@ -39,12 +39,13 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         // Required empty public constructor
     }
 
-
+    //Method to load foods into the arraylist
     private void loadFoods(){
         DatabaseHelper databaseHelper = new DatabaseHelper(this.getContext());
         databaseHelper.createFoodList(foods);
     }
 
+    //Standard fragment boilerplate
     public static searchFoodListFragment newInstance(String param1, String param2) {
         searchFoodListFragment fragment = new searchFoodListFragment();
         Bundle args = new Bundle();
@@ -54,6 +55,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         return fragment;
     }
 
+    //Standard fragment boilerplate
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         }
     }
 
+    //Called when the fragment is loaded, used to set up the fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -81,7 +84,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         return view;
     }
 
-
+    //Method to add search bar functionality to the fragment
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
        inflater = getActivity().getMenuInflater();
@@ -103,7 +106,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
     }
 
 
-
+    //On click listener within the recyclerview
     @Override
     public void onFoodClick(int position) {
         foods.get(position);
@@ -120,7 +123,7 @@ public class searchFoodListFragment extends Fragment implements FoodRecyclerAdap
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             return false;
         }
-
+    //Method to delete objects from the database when swiping left
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 

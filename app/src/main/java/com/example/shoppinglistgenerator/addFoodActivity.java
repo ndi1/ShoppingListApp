@@ -45,6 +45,7 @@ private Double calDouble, fatsDouble, carbsDouble, proteinDouble, servingsDouble
 
     }
 
+    //Method adds a food to the database using the user-provided inputs
     public void addFood(){
 
         foodNameTextbox = findViewById(R.id.foodNameTextbox);
