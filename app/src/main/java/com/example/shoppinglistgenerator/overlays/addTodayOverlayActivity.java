@@ -1,4 +1,4 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.overlays;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.shoppinglistgenerator.MainActivity;
+import com.example.shoppinglistgenerator.R;
+import com.example.shoppinglistgenerator.foodSearchActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class addTodayOverlayActivity extends AppCompatActivity {

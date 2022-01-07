@@ -1,4 +1,4 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.entities;
 
 import java.io.Serializable;
 

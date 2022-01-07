@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.shoppinglistgenerator.helpers.DatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class addFoodActivity extends AppCompatActivity {

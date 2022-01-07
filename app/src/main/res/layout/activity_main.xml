@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/mainCalendarFragment"
-        android:name="com.example.shoppinglistgenerator.mainCalendarFragment"
+        android:name="com.example.shoppinglistgenerator.fragments.mainCalendarFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/mainFragmentDailyRecipes"
-        android:name="com.example.shoppinglistgenerator.mainFragmentDailyRecipes"
+        android:name="com.example.shoppinglistgenerator.fragments.mainFragmentDailyRecipes"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"

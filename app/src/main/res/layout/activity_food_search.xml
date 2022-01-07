@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/searchFoodListFragment"
-        android:name="com.example.shoppinglistgenerator.searchFoodListFragment"
+        android:name="com.example.shoppinglistgenerator.fragments.searchFoodListFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"

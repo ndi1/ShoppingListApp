@@ -16,12 +16,12 @@
             android:name=".EditFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".addTodayOverlayActivity"
+            android:name=".overlays.addTodayOverlayActivity"
             android:exported="false"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
         <activity
-            android:name=".addAllOverlayActivity"
+            android:name=".overlays.addAllOverlayActivity"
             android:exported="false"
             android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />

@@ -1,4 +1,4 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toast;
+
+import com.example.shoppinglistgenerator.EditFoodActivity;
+import com.example.shoppinglistgenerator.adapters.FoodRecyclerAdapter;
+import com.example.shoppinglistgenerator.R;
+import com.example.shoppinglistgenerator.entities.Food;
+import com.example.shoppinglistgenerator.helpers.DatabaseHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;

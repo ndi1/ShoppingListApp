@@ -1,4 +1,4 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.shoppinglistgenerator.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;

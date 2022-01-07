@@ -1,18 +1,18 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.shoppinglistgenerator.R;
+import com.example.shoppinglistgenerator.entities.Food;
 
 import java.util.ArrayList;
 

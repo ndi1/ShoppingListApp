@@ -1,4 +1,4 @@
-package com.example.shoppinglistgenerator;
+package com.example.shoppinglistgenerator.helpers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,8 +8,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.shoppinglistgenerator.entities.Food;
+
 import java.util.ArrayList;
-import java.util.BitSet;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
