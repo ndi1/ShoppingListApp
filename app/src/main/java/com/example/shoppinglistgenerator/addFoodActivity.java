@@ -2,6 +2,7 @@ package com.example.shoppinglistgenerator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,6 +44,11 @@ private Double calDouble, fatsDouble, carbsDouble, proteinDouble, servingsDouble
 
 
 
+    }
+
+    public void returnToFoodSearch(){
+        Intent intent = new Intent(this, foodSearchActivity.class);
+        startActivity(intent);
     }
 
     //Method adds a food to the database using the user-provided inputs
@@ -112,6 +118,8 @@ private Double calDouble, fatsDouble, carbsDouble, proteinDouble, servingsDouble
         carbsTextbox.getText().clear();
         servingSizeTextbox.getText().clear();
         servingsSpinner.setSelection(0);
+
+        returnToFoodSearch();
     }
 
 }

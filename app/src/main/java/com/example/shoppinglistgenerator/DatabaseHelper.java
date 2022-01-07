@@ -42,7 +42,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String ITEM_TABLE_NAME = "item_table";
     public static final String ITEM_TABLE_COL1 = "ITEM_ID";
-    public static final String ITEM_TABLE_COL2 = "ITEM_DESC";
+    public static final String ITEM_TABLE_COL2 = "ITEM_NAME";
+    public static final String ITEM_TABLE_COL3 = "ITEM_DESC";
 
     //Daily Food Table and Columns
     public static final String DAILY_FOOD_TABLE_NAME = "daily_food_table";
@@ -159,7 +160,17 @@ SQLiteDatabase db = this.getReadableDatabase();
     }
 
 
-
+    public Boolean addItems(String itemName, String itemDesc){
+        String query = "INSERT INTO "+ITEM_TABLE_NAME+" (ITEM_NAME, ITEM_DESC)";
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ITEM_TABLE_COL2,itemName);
+        contentValues.put(ITEM_TABLE_COL3,itemDesc);
+        long result = db.insert(ITEM_TABLE_NAME,null,contentValues);
+        if (result == -1)
+            return false;
+        else return true;
+    }
 
 
 //Method to create the initial database and tables

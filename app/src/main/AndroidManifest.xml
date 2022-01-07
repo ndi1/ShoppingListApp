@@ -10,15 +10,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoppingListGenerator">
         <activity
+            android:name=".addItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditFoodActivity"
             android:exported="false" />
         <activity
             android:name=".addTodayOverlayActivity"
             android:exported="false"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
         <activity
             android:name=".addAllOverlayActivity"
             android:exported="false"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
         <activity
             android:name=".foodSearchActivity"

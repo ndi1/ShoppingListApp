@@ -76,7 +76,7 @@ public class addAllOverlayActivity extends AppCompatActivity {
 
     //Method to open list activity
     public void openListActivity(){
-        Intent intent = new Intent(this, createListActivity.class);
+        Intent intent = new Intent(this, addItemActivity.class);
         startActivity(intent);
     }
 
